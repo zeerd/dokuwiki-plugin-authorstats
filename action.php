@@ -189,6 +189,9 @@ class action_plugin_authorstats extends DokuWiki_Action_Plugin
         foreach ($file_contents as $line) {
             $r = $this->_parseChange($line);
 
+            if (!isset($r["author"]))
+                continue;
+
             if ($r["author"] == "")
                 continue;
 
